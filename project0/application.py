@@ -6,15 +6,18 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
-@app.route('/name')
-def welcome():
-    return "Welcome to our application!"
+@app.route('/add/<int:number1>/<int:number2>')
+def add(number1, number2):
+    return f"{number1} + {number2} = {number1 + number2}"
 
-@app.route('/welcome/<person>')
-def welcome_home(person):
-    return f"Dear {person}, Welcome Home!!!"
+@app.route('/sub/<int:number1>/<int:number2>')
+def sub(number1, number2):
+    return f"{number1} - {number2} = {number1 - number2}"
 
-@app.route('/welcome/<int:number>')
-def number_add(number):
-    return f"I guess your favorite number is {number}. \
-                It is half of {number * 2}"
+@app.route('/mul/<int:number1>/<int:number2>')
+def mul(number1, number2):
+    return f"{number1} * {number2} = {number1 * number2}"
+
+@app.route('/div/<int:number1>/<int:number2>')
+def div(number1, number2):
+    return f"{number1} / {number2} = {number1 / number2}"
